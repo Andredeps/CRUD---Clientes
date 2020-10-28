@@ -23,16 +23,15 @@
             $('[data-toggle="tooltip"]').tooltip();   
         });
     </script>
-<script type="text/javascript">
-$(document).ready(function(){
-    var link;
+    <script type="text/javascript">
+        $(document).ready(function(){
+        var link;
         $('.search-box input[type="text"]').on("keyup input", function(){
-            /* Get input value on change */
             var inputVal = $(this).val();
             var resultDropdown = $(this).siblings(".result");
             if(inputVal.length){
                $.get("pesquisa.php", {term: inputVal}).done(function(data){
-            // Display the returned data in browser
+                   
             resultDropdown.html(data);
             link = data;
         });
@@ -41,7 +40,6 @@ $(document).ready(function(){
             }
         });
 
-        // Set search input value on click of result item
         $(document).on("click", ".result p", function(){
             $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
             $(this).parent(".result").empty();

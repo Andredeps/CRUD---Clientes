@@ -66,7 +66,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                 header("location: index.php");
                 exit();
             } else{
-                echo "Something went wrong. Please try again later.";
+                echo "Algo deu errado. Por favor, tente novamente mais tarde.";
             }
         }
          
