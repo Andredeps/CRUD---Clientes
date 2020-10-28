@@ -18,7 +18,6 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $nome = $input_nome;
     }
     
-        // Validate sobrenome
     $input_sobrenome = trim($_POST["sobrenome"]);
     if(empty($input_sobrenome)){
         $sobrenome_err = "Insira um sobrenome.";

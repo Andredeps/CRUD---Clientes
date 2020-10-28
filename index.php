@@ -23,6 +23,33 @@
             $('[data-toggle="tooltip"]').tooltip();   
         });
     </script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var link;
+        $('.search-box input[type="text"]').on("keyup input", function(){
+            /* Get input value on change */
+            var inputVal = $(this).val();
+            var resultDropdown = $(this).siblings(".result");
+            if(inputVal.length){
+               $.get("pesquisa.php", {term: inputVal}).done(function(data){
+            // Display the returned data in browser
+            resultDropdown.html(data);
+            link = data;
+        });
+            } else{
+                resultDropdown.empty();
+            }
+        });
+
+        // Set search input value on click of result item
+        $(document).on("click", ".result p", function(){
+            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+            $(this).parent(".result").empty();
+            console.log(link);
+            window.location.assign("leitura.php")
+        });
+    });
+</script>
 </head>
 <body>
     <div class="wrapper">
@@ -33,6 +60,14 @@
                         <h2 class="pull-left">Cadastro de Clientes</h2>
                         <a href="adicionar.php" class="btn btn-success pull-right">Adicionar Novo Cliente</a>
                     </div>
+                    
+                    <div class="search-box">
+                    <input type="text" autocomplete="off" placeholder="Pesquise um nome..." />
+                    <div class="result"></div>
+                    </div>
+                    
+                    <br>
+                    
                     <?php
         
                     require_once "config.php";

@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $nome = $input_nome;
     }
     
-        // Validação sobrenome
+    // Validação sobrenome
     $input_sobrenome = trim($_POST["sobrenome"]);
     if(empty($input_sobrenome)){
         $sobrenome_err = "Insira um sobrenome.";
@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $cpf = $input_cpf;
     }
     
-  // Validação celular
+    // Validação celular
     $input_celular = trim($_POST["celular"]);
     if(empty($input_celular)){
         $celular_err = "Insira o celular.";     
@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $celular = $input_celular;
     }
     
-      // Validação email
+    // Validação email
     $input_email = trim($_POST["email"]);
     if(empty($input_email)){
         $email_err = "Insira um email.";     
